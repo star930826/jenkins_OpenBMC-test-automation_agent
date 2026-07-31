@@ -101,8 +101,4 @@ docker exec -u jenkins obmc-agent df -h /dev/shm
 - **`gen_misc.py`（openbmc-test-automation repo 內）** 的 `gm.which()` 曾有路徑引號處理問題，修正應 commit 進該 repo，而非僅在 agent 端手動修補，否則每次 `cleanWs()` 後會失效。
 - 若容器被 `docker rm` 重建，可寫層資料會歸零；只要掛載參數設定正確（見上方），核心資料（金鑰、boot_lists、workspace）不會遺失。
 
-## 待辦事項
 
-- [ ] 資料掛載路徑搬遷至系統層級路徑（如 `/data/`），避免依賴個人帳號
-- [ ] 確認 `gen_misc.py` 修正已 commit 至 `openbmc-test-automation` repo
-- [ ] 建立 workspace 定期清理機制，避免長期累積佔滿磁碟
