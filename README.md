@@ -1,1 +1,0 @@
-# jenkins_OpenBMC-test-automation_agent
