@@ -57,8 +57,6 @@ docker build -t obmc-agent:full-24.04 .
 mkdir -p ~/jenkins_data/{jenkins,boot_lists,ssh_shared,workspace}
 ```
 
-> ⚠️ 建議放在**非個人帳號**的系統路徑（例如 `/data/`），避免因帳號被刪除、離職等情況導致資料遺失。若暫時只能放在個人帳號下，請務必記錄清楚，並在有 sudo 權限後盡快搬遷。
-
 ### 3. 啟動容器
 
 ```bash
@@ -100,7 +98,7 @@ docker exec -u jenkins obmc-agent df -h /dev/shm
 
 ## 已知注意事項
 
-- **Jenkins Job 名稱請避免使用空格**（例如用 `GUI_B8056_2U` 而非 `GUI B8056 2U`），已確認空格路徑會導致 Pipeline / Robot Framework 部分環節讀取失敗。
+- **Jenkins Job 名稱請避免使用空格**，已確認空格路徑會導致 Pipeline / Robot Framework 部分環節讀取失敗。
 - **`gen_misc.py`（openbmc-test-automation repo 內）** 的 `gm.which()` 曾有路徑引號處理問題，修正應 commit 進該 repo，而非僅在 agent 端手動修補，否則每次 `cleanWs()` 後會失效。
 - 若容器被 `docker rm` 重建，可寫層資料會歸零；只要掛載參數設定正確（見上方），核心資料（金鑰、boot_lists、workspace）不會遺失。
 
