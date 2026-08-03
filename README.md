@@ -39,7 +39,6 @@ Jenkins SSH Agent，用於執行 OpenBMC 相關的自動化測試（Redfish / GU
 3. **`boot_lists` 軟連結自動修復**：
    - 掃描 `/home/jenkins/workspace` 底下所有名為 `openbmc-test-automation` 的資料夾
    - 若其 `data/boot_lists` 尚未建立軟連結，自動建立指向 `/data/boot_lists` 的軟連結
-   - **每 60 秒重新掃描一次**，因為 Jenkins Pipeline 若在 Checkout 階段使用 `cleanWs()`，會在每次 Build 開始時清空 workspace，需要持續監控自動補上
 
 ## 使用方式
 
