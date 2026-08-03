@@ -57,7 +57,7 @@ docker build -t obmc-agent:full-24.04 .
 mkdir -p ~/jenkins_data/{jenkins,boot_lists,ssh_shared,workspace}
 ```
 
-> ⚠️ 建議放在**非個人帳號**的系統路徑（例如 `/data/`），避免因帳號權限異動導致資料遺失。
+
 
 ### 3. 啟動容器
 
